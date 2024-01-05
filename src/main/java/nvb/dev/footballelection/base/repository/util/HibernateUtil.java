@@ -1,26 +1,18 @@
 package nvb.dev.footballelection.base.repository.util;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class HibernateUtil {
 
     private HibernateUtil() {
     }
 
-    private static final StandardServiceRegistry SERVICE_REGISTRY = new StandardServiceRegistryBuilder()
-            .configure("hibernate.cfg.xml").build();
+    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY =
+            Persistence.createEntityManagerFactory("footballElection");
 
-    private static final Metadata METADATA = new MetadataSources()
-            .getMetadataBuilder(SERVICE_REGISTRY).build();
-
-    private static final SessionFactory SESSION_FACTORY = METADATA.getSessionFactoryBuilder().build();
-
-    public static SessionFactory getSessionFactory() {
-        return SESSION_FACTORY;
+    public static EntityManagerFactory getEntityManagerFactory() {
+        return ENTITY_MANAGER_FACTORY;
     }
 
 }

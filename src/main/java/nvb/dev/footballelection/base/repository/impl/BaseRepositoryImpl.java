@@ -1,9 +1,9 @@
 package nvb.dev.footballelection.base.repository.impl;
 
+import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 import nvb.dev.footballelection.base.base.BaseEntity;
 import nvb.dev.footballelection.base.repository.BaseRepository;
-import org.hibernate.Session;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -13,33 +13,33 @@ import java.util.Optional;
 public abstract class BaseRepositoryImpl<ID extends Serializable, Entity extends BaseEntity<ID>>
         implements BaseRepository<ID, Entity> {
 
-    protected final Session session;
+    protected final EntityManager entityManager;
 
     public abstract Class<Entity> getEntityClass();
 
     @Override
     public void save(Entity entity) {
-        session.persist(entity);
+        entityManager.persist(entity);
     }
 
     @Override
     public void update(Entity entity) {
-        if (findById(entity.getId()).isPresent()) session.merge(entity);
+        if (findById(entity.getId()).isPresent()) entityManager.merge(entity);
     }
 
     @Override
     public void remove(Entity entity) {
-        session.remove(entity);
+        entityManager.remove(entity);
     }
 
     @Override
     public Optional<Entity> findById(ID id) {
-        return Optional.ofNullable(session.find(getEntityClass(), id));
+        return Optional.ofNullable(entityManager.find(getEntityClass(), id));
     }
 
     @Override
     public Collection<Entity> findAll() {
-        return session.createQuery("from " + getEntityClass().getSimpleName(), getEntityClass())
+        return entityManager.createQuery("from " + getEntityClass().getSimpleName(), getEntityClass())
                 .getResultList();
     }
 }

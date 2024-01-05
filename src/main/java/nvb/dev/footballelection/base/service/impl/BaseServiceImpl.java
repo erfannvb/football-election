@@ -1,10 +1,10 @@
 package nvb.dev.footballelection.base.service.impl;
 
+import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 import nvb.dev.footballelection.base.base.BaseEntity;
 import nvb.dev.footballelection.base.repository.BaseRepository;
 import nvb.dev.footballelection.base.service.BaseService;
-import org.hibernate.Session;
 import org.hibernate.TransactionException;
 
 import java.io.Serializable;
@@ -15,15 +15,15 @@ import java.util.Optional;
 public class BaseServiceImpl<ID extends Serializable, Entity extends BaseEntity<ID>,
         Repository extends BaseRepository<ID, Entity>> implements BaseService<ID, Entity> {
 
-    protected final Session session;
+    protected final EntityManager entityManager;
     protected final Repository repository;
 
     @Override
     public void save(Entity entity) {
         try {
-            session.beginTransaction();
+            entityManager.getTransaction().begin();
             repository.save(entity);
-            session.getTransaction().commit();
+            entityManager.getTransaction().commit();
         } catch (TransactionException e) {
             e.getStackTrace();
         }
@@ -32,9 +32,9 @@ public class BaseServiceImpl<ID extends Serializable, Entity extends BaseEntity<
     @Override
     public void update(Entity entity) {
         try {
-            session.beginTransaction();
+            entityManager.getTransaction().begin();
             repository.update(entity);
-            session.getTransaction().commit();
+            entityManager.getTransaction().commit();
         } catch (TransactionException e) {
             e.getStackTrace();
         }
@@ -43,9 +43,9 @@ public class BaseServiceImpl<ID extends Serializable, Entity extends BaseEntity<
     @Override
     public void remove(Entity entity) {
         try {
-            session.beginTransaction();
+            entityManager.getTransaction().begin();
             repository.remove(entity);
-            session.getTransaction().commit();
+            entityManager.getTransaction().commit();
         } catch (TransactionException e) {
             e.getStackTrace();
         }
@@ -58,9 +58,9 @@ public class BaseServiceImpl<ID extends Serializable, Entity extends BaseEntity<
 
     @Override
     public Collection<Entity> findAll() {
-        session.beginTransaction();
+        entityManager.getTransaction().begin();
         Collection<Entity> entities = repository.findAll();
-        session.getTransaction().commit();
+        entityManager.getTransaction().commit();
         return entities;
     }
 }

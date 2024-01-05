@@ -5,7 +5,7 @@ public class ValidationException extends IllegalArgumentException {
         super();
     }
 
-    public ValidationException(String s) {
-        super(s);
+    public ValidationException(String message) {
+        super(message);
     }
 }

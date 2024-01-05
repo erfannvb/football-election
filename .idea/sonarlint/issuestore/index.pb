@@ -21,3 +21,7 @@ t
 Dsrc/main/java/nvb/dev/footballelection/base/service/BaseService.java,c\d\cd3f12f778b671d1d41a7b798d9cd8059b26f5c4
 }
 Msrc/main/java/nvb/dev/footballelection/base/service/impl/BaseServiceImpl.java,3\7\379ce9c6450e415b1e85461ba55897f294518f84
+g
+7src/main/java/nvb/dev/footballelection/entity/User.java,6\9\690e334ab563c5c1c807bf40b01f099f2c46d614
+g
+7src/main/java/nvb/dev/footballelection/entity/Vote.java,d\0\d05e27451bd49f0cc89d8f05c7e826f289c8b754

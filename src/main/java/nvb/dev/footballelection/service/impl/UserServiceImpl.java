@@ -39,7 +39,6 @@ public class UserServiceImpl extends BaseServiceImpl<Long, User, UserRepository>
                 validatorFactory.close();
                 return false;
             } else {
-                repository.save(user);
                 return true;
             }
 

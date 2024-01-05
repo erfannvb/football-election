@@ -37,7 +37,6 @@ public class VoteServiceImpl extends BaseServiceImpl<Long, Vote, VoteRepository>
                 validatorFactory.close();
                 return false;
             } else {
-                repository.save(vote);
                 return true;
             }
 

@@ -41,3 +41,13 @@ x
 Hsrc/main/java/nvb/dev/footballelection/service/impl/VoteServiceImpl.java,e\a\eaeabb2eaff99f6c19a1618f8203da88df519e7c
 y
 Isrc/main/java/nvb/dev/footballelection/exception/ValidationException.java,9\7\97071782607a21f898d31f22f8e79c90f6207322
+\
+,src/main/webapp/components/common_css_js.jsp,c\2\c2e831f249bca54cac003c8626665ae1c3f45935
+U
+%src/main/webapp/components/navbar.jsp,c\9\c92a415dda6037329095cd46457b4ddd6d717a63
+O
+src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
+L
+src/main/webapp/register.jsp,b\d\bde35d3876092f82f8efadc1a6675aaf6bd96946
+I
+src/main/webapp/login.jsp,8\5\85ee523d01e5e19376db640e846c91bbcb0a1c22

@@ -15,9 +15,11 @@
     <div class="row">
         <div class="col-md-4 offset-md-4">
             <div class="card mt-3">
+                <jsp:include page="components/ok_message.jsp"/>
+                <jsp:include page="components/error_message.jsp"/>
                 <div class="card-header text-center fs-4"><h3>Sign Up</h3></div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="register" method="post">
                         <div class="mb-3">
                             <label for="firstName" class="form-label">First Name</label>
                             <input type="text" class="form-control" id="firstName" name="firstName"

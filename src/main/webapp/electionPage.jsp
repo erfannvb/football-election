@@ -1,3 +1,14 @@
+<%@ page import="nvb.dev.footballelection.entity.User" %>
+<%
+
+    User currentUser = (User) session.getAttribute("currentUser");
+    if (currentUser == null) {
+        session.setAttribute("error", "You are not logged-in! Login first.");
+        response.sendRedirect("/login.jsp");
+        return;
+    }
+
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">

@@ -8,7 +8,7 @@
     <jsp:include page="components/common_css_js.jsp"/>
 </head>
 <body style="background-image: url('img/football.jpg'); background-position: center;
-background-size: cover; width: 100%; height: 100vh; position:relative;">
+background-size: cover; width: 100%; height: 100vh;">
 
 <jsp:include page="components/navbar.jsp"/>
 

@@ -20,9 +20,9 @@ import java.util.Optional;
 @WebFilter(filterName = "LoginFilter", servletNames = "LoginServlet", urlPatterns = "/login")
 public class LoginFilter implements Filter {
 
-    EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
-    UserRepository userRepository = new UserRepositoryImpl(entityManager);
-    UserService userService = new UserServiceImpl(entityManager, userRepository);
+    private final EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
+    private final UserRepository userRepository = new UserRepositoryImpl(entityManager);
+    private final UserService userService = new UserServiceImpl(entityManager, userRepository);
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)

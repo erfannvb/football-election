@@ -12,7 +12,6 @@ import nvb.dev.footballelection.repository.UserRepository;
 import nvb.dev.footballelection.repository.impl.UserRepositoryImpl;
 import nvb.dev.footballelection.service.UserService;
 import nvb.dev.footballelection.service.impl.UserServiceImpl;
-import org.hibernate.Session;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,9 +20,9 @@ import java.util.List;
 @WebFilter(filterName = "RegisterFilter", servletNames = "RegisterServlet", urlPatterns = "/register")
 public class RegisterFilter implements Filter {
 
-    EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
-    UserRepository userRepository = new UserRepositoryImpl(entityManager);
-    UserService userService = new UserServiceImpl(entityManager, userRepository);
+    private final EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
+    private final UserRepository userRepository = new UserRepositoryImpl(entityManager);
+    private final UserService userService = new UserServiceImpl(entityManager, userRepository);
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)

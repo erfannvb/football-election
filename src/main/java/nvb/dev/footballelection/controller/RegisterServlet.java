@@ -19,9 +19,9 @@ import java.io.IOException;
 @WebServlet(name = "RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
 
-    EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
-    UserRepository userRepository = new UserRepositoryImpl(entityManager);
-    UserService userService = new UserServiceImpl(entityManager, userRepository);
+    private final EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
+    private final UserRepository userRepository = new UserRepositoryImpl(entityManager);
+    private final UserService userService = new UserServiceImpl(entityManager, userRepository);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

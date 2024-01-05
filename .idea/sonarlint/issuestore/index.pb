@@ -67,3 +67,5 @@ r
 Bsrc/main/java/nvb/dev/footballelection/controller/LoginFilter.java,9\0\906c4c408ebbd8a23e7479b30d117acd1b0d05f6
 P
  src/main/webapp/electionPage.jsp,2\7\278367507ca9dcd0ea76531f33d0447961c3cf66
+t
+Dsrc/main/java/nvb/dev/footballelection/controller/LogoutServlet.java,4\4\449af71fbbe1a403a8ef1d5a07ba4a01def4b93e

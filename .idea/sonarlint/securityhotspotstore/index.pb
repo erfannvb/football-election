@@ -61,3 +61,9 @@ Y
 )src/main/webapp/components/ok_message.jsp,b\b\bbcb7ab8d563a7c96752825ef17dd59a02d52af7
 \
 ,src/main/webapp/components/error_message.jsp,c\d\cd9bbd922e600ae6669ccbf92ff473be90525c92
+s
+Csrc/main/java/nvb/dev/footballelection/controller/LoginServlet.java,6\b\6bc5a3145a2262c023eed4ce7671d426dd9606a5
+r
+Bsrc/main/java/nvb/dev/footballelection/controller/LoginFilter.java,9\0\906c4c408ebbd8a23e7479b30d117acd1b0d05f6
+P
+ src/main/webapp/electionPage.jsp,2\7\278367507ca9dcd0ea76531f33d0447961c3cf66

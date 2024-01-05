@@ -27,7 +27,7 @@
     <div class="row mt-5">
 
         <div class="col-md-12">
-            <div class="card">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#electionModal">
                 <div class="card-body text-center">
                     <div class="container mb-3">
                         <img src="img/election.png" alt="Election" class="img-fluid rounded" style="max-width: 100px">
@@ -42,7 +42,7 @@
     <div class="row mt-5">
 
         <div class="col-md-12">
-            <div class="card">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#statsModal">
                 <div class="card-body text-center">
                     <div class="container mb-3">
                         <img src="img/stats.png" alt="Election" class="img-fluid rounded" style="max-width: 100px">
@@ -56,6 +56,63 @@
 
 </div>
 
+<!-- Election Modal -->
+<div class="modal fade" id="electionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Which team will be the champion of the Premier League ?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <div class="form-check mb-4">
+                            <label class="form-check-label" for="esteghlal">Esteghlal Tehran</label>
+                            <input class="form-check-input" type="radio" name="team" id="esteghlal">
+                        </div>
+                        <div class="form-check mb-4">
+                            <label class="form-check-label" for="sepahan">Sepahan Isfahan</label>
+                            <input class="form-check-input" type="radio" name="team" id="sepahan">
+                        </div>
+                        <div class="form-check mb-4">
+                            <label class="form-check-label" for="teraktor">Teraktorsazi Tabriz</label>
+                            <input class="form-check-input" type="radio" name="team" id="teraktor">
+                        </div>
+                        <div class="form-check mb-4">
+                            <label class="form-check-label" for="persepolis">Persepolis Tehran</label>
+                            <input class="form-check-input" type="radio" name="team" id="persepolis">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="container text-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Vote</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Election Modal -->
+<div class="modal fade" id="statsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Statistics</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

@@ -18,9 +18,43 @@
     <title>Election Page</title>
     <jsp:include page="components/common_css_js.jsp"/>
 </head>
-<body>
+<body style="background-image: linear-gradient(to right, #7762ca, #6078d6, #4e8adb, #4b9bdb, #58a9d8);">
 
 <jsp:include page="components/navbar.jsp"/>
+
+<div class="container election">
+
+    <div class="row mt-5">
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="container mb-3">
+                        <img src="img/election.png" alt="Election" class="img-fluid rounded" style="max-width: 100px">
+                    </div>
+                    <div>Open Election Form</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="container mb-3">
+                        <img src="img/stats.png" alt="Election" class="img-fluid rounded" style="max-width: 100px">
+                    </div>
+                    <div>Statistics</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 
 </body>

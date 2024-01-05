@@ -51,3 +51,5 @@ L
 src/main/webapp/register.jsp,b\d\bde35d3876092f82f8efadc1a6675aaf6bd96946
 I
 src/main/webapp/login.jsp,8\5\85ee523d01e5e19376db640e846c91bbcb0a1c22
+M
+src/main/webapp/css/style.css,2\c\2c1f525046eaa5ad3e39cc3d3b2f4c4fab4ff318

@@ -17,3 +17,7 @@ Nsrc/main/java/nvb/dev/footballelection/base/repository/util/HibernateUtil.java
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+t
+Dsrc/main/java/nvb/dev/footballelection/base/service/BaseService.java,c\d\cd3f12f778b671d1d41a7b798d9cd8059b26f5c4
+}
+Msrc/main/java/nvb/dev/footballelection/base/service/impl/BaseServiceImpl.java,3\7\379ce9c6450e415b1e85461ba55897f294518f84

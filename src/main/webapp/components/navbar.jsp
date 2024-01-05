@@ -1,3 +1,8 @@
+<%@ page import="nvb.dev.footballelection.entity.User" %>
+<%
+    User currentUser = (User) session.getAttribute("currentUser");
+%>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="/index.jsp"><span style="color: blue">Football</span>Election</a>
@@ -12,12 +17,34 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+
+                <%
+                    if (currentUser == null) {%>
+
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/login.jsp">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/register.jsp">Register</a>
                 </li>
+
+                <%
+                } else {
+                %>
+
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page"
+                       href="/electionPage.jsp">
+                        <%= currentUser.getUsername() %>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="logout">Logout</a>
+                </li>
+
+                <% } %>
+
             </ul>
         </div>
     </div>

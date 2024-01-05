@@ -25,3 +25,11 @@ g
 7src/main/java/nvb/dev/footballelection/entity/User.java,6\9\690e334ab563c5c1c807bf40b01f099f2c46d614
 g
 7src/main/java/nvb/dev/footballelection/entity/Vote.java,d\0\d05e27451bd49f0cc89d8f05c7e826f289c8b754
+u
+Esrc/main/java/nvb/dev/footballelection/repository/UserRepository.java,d\2\d2ae6df52383272f9c66e104c3611fbf95f67f0d
+u
+Esrc/main/java/nvb/dev/footballelection/repository/VoteRepository.java,4\3\4309c3aeabb61be0be115ff43e2bf0148419d512
+~
+Nsrc/main/java/nvb/dev/footballelection/repository/impl/UserRepositoryImpl.java,c\e\ceed79d4e79905604717252b97ed6aad7464f47c
+~
+Nsrc/main/java/nvb/dev/footballelection/repository/impl/VoteRepositoryImpl.java,7\1\71f7f7161d9bc89a1600d27a79799966a86d118c

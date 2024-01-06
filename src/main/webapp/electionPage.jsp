@@ -24,6 +24,8 @@
 
 <div class="container election">
 
+    <jsp:include page="components/ok_message.jsp"/>
+
     <div class="row mt-5">
 
         <div class="col-md-12">
@@ -65,35 +67,62 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form>
                     <div class="form-group">
                         <div class="form-check mb-4">
                             <label class="form-check-label" for="esteghlal">Esteghlal Tehran</label>
-                            <input class="form-check-input" type="radio" name="team" id="esteghlal">
+                            <input class="form-check-input" type="radio" name="team" id="esteghlal"
+                                   value="Esteghlal Tehran">
                         </div>
                         <div class="form-check mb-4">
                             <label class="form-check-label" for="sepahan">Sepahan Isfahan</label>
-                            <input class="form-check-input" type="radio" name="team" id="sepahan">
+                            <input class="form-check-input" type="radio" name="team" id="sepahan"
+                                   value="Sepahan Isfahan">
                         </div>
                         <div class="form-check mb-4">
                             <label class="form-check-label" for="teraktor">Teraktorsazi Tabriz</label>
-                            <input class="form-check-input" type="radio" name="team" id="teraktor">
+                            <input class="form-check-input" type="radio" name="team" id="teraktor"
+                                   value="Teraktorsazi Tabriz">
                         </div>
                         <div class="form-check mb-4">
                             <label class="form-check-label" for="persepolis">Persepolis Tehran</label>
-                            <input class="form-check-input" type="radio" name="team" id="persepolis">
+                            <input class="form-check-input" type="radio" name="team" id="persepolis"
+                                   value="Persepolis Tehran">
+                        </div>
+                        <div class="form-check mb-4">
+                            <label class="form-check-label" for="none">None</label>
+                            <input class="form-check-input" type="radio" name="team" id="none"
+                                   value="None">
                         </div>
                     </div>
                     <hr>
                     <div class="container text-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Vote</button>
+                        <button type="button" class="btn btn-primary" id="voteBtn">Vote</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+    $(document).ready(() => {
+        $("#voteBtn").click(() => {
+            let team = $('input:radio[name="team"]:checked').val();
+            $.ajax({
+                type: 'POST',
+                data: {team: team},
+                url: 'http://localhost:8080/vote',
+                success: (data) => {
+                    window.location = '/electionPage.jsp';
+                }
+            });
+        });
+    });
+
+</script>
 
 <!-- Election Modal -->
 <div class="modal fade" id="statsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -45,7 +45,7 @@
                             <button type="reset" class="btn btn-outline-danger">Reset</button>
                         </div>
                         <div class="mt-3 text-center">
-                            <p>Already have an account? <a href="login.jsp">Login</a></p>
+                            <p>Already have an account? <a id="registerLink" href="login.jsp">Login</a></p>
                         </div>
                     </form>
                 </div>

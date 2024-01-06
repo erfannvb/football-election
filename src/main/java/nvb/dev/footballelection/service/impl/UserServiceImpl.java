@@ -52,4 +52,9 @@ public class UserServiceImpl extends BaseServiceImpl<Long, User, UserRepository>
     public Optional<User> findUserByUsernameAndPassword(String username, String password) {
         return repository.findUserByUsernameAndPassword(username, password);
     }
+
+    @Override
+    public Optional<User> findUserByVoteId(long voteId) {
+        return repository.findUserByVoteId(voteId);
+    }
 }

@@ -30,4 +30,12 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<Long, User> implement
         userTypedQuery.setParameter("password", password);
         return Optional.ofNullable(userTypedQuery.getSingleResult());
     }
+
+    @Override
+    public Optional<User> findUserByVoteId(long voteId) {
+        String hql = "from User u where u.vote.id =: voteId";
+        TypedQuery<User> userTypedQuery = entityManager.createQuery(hql, User.class);
+        userTypedQuery.setParameter("voteId", voteId);
+        return Optional.ofNullable(userTypedQuery.getSingleResult());
+    }
 }

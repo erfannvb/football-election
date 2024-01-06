@@ -9,4 +9,6 @@ public interface UserRepository extends BaseRepository<Long, User> {
 
     Optional<User> findUserByUsernameAndPassword(String username, String password);
 
+    Optional<User> findUserByVoteId(long voteId);
+
 }

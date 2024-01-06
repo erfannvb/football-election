@@ -14,3 +14,15 @@
     background: #e2e2e2;
     cursor: pointer;
 }
+
+#signUpLink, #registerLink {
+    text-decoration-line: none;
+}
+
+#signUpLink:hover {
+    color: blueviolet;
+}
+
+#registerLink:hover {
+    color: blueviolet;
+}

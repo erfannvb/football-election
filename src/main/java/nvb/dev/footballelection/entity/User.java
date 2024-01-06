@@ -1,8 +1,6 @@
 package nvb.dev.footballelection.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -36,4 +34,14 @@ public class User extends BaseEntity<Long> {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "vote_id")
+    private Vote vote;
+
+    public User(String firstName, String lastName, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+    }
 }

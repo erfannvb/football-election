@@ -10,8 +10,8 @@ import nvb.dev.footballelection.base.base.BaseEntity;
 @Table(name = "tbl_user")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
 public class User extends BaseEntity<Long> {
 
     @NotNull(message = "firstName cannot be null")
@@ -37,7 +37,7 @@ public class User extends BaseEntity<Long> {
     @Column(name = "has_voted")
     private boolean hasVoted;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "vote_id")
     private Vote vote;
 

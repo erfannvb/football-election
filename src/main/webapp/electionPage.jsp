@@ -265,7 +265,37 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-               ...
+
+                <%
+
+                    EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
+
+                    try {
+
+                        entityManager.getTransaction().begin();
+
+                        String hql = "select count(u.id), u.vote.team from User u" +
+                                " where u.hasVoted = true group by u.vote.team";
+                        Query query = entityManager.createQuery(hql);
+
+                        List<Object[]> resultList = query.getResultList();
+                        for (Object[] result : resultList) {
+                            long voteCount = (long) result[0];
+                            String teamName = (String) result[1];
+                %>
+
+                <p><strong><%= teamName %> : <%= voteCount %></strong></p>
+
+                <%
+                        }
+
+                    } catch (Exception e) {
+                        e.getStackTrace();
+                    } finally {
+                        entityManager.close();
+                    }
+                %>
+
             </div>
             <div class="modal-footer">
                 <div class="container text-center">
@@ -277,6 +307,7 @@
 </div>
 
 <script type="text/javascript">
+
 
 </script>
 

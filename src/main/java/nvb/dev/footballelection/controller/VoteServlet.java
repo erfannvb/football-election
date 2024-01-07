@@ -48,10 +48,13 @@ public class VoteServlet extends HttpServlet {
 
             if (voteService.validate(vote)) {
 
+                voteService.save(vote);
+
                 currentUser.setHasVoted(true);
                 currentUser.setVote(vote);
 
-                voteService.save(vote);
+                vote.getUserSet().add(currentUser);
+
                 userService.update(currentUser);
 
                 httpSession.setAttribute("message",

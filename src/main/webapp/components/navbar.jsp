@@ -1,4 +1,5 @@
 <%@ page import="nvb.dev.footballelection.entity.User" %>
+<jsp:include page="common_css_js.jsp"/>
 <%
     User currentUser = (User) session.getAttribute("currentUser");
 %>
@@ -35,7 +36,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="logout">Logout</a>
+                    <a class="nav-link" aria-current="page" id="logoutNavLink"
+                       data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        Logout
+                    </a>
                 </li>
 
                 <% } %>
@@ -44,3 +48,27 @@
         </div>
     </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="logout" method="post">
+                    <div class="container text-center">
+                        <strong>Are you sure you want to log out?</strong>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

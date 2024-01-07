@@ -1,6 +1,7 @@
 package nvb.dev.footballelection.controller;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -38,17 +39,22 @@ public class VoteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+
             HttpSession httpSession = req.getSession();
             User currentUser = (User) httpSession.getAttribute("currentUser");
 
             String team = req.getParameter("team");
             String hasVotedInput = req.getParameter("hasVotedInput");
 
-            Vote vote = new Vote(team);
+            Vote vote;
+            try {
+                vote = voteService.findVoteByTeam(team).orElseThrow(NoResultException::new);
+            } catch (NoResultException ex) {
+                vote = new Vote(team);
+                voteService.save(vote);
+            }
 
             if (voteService.validate(vote)) {
-
-                voteService.save(vote);
 
                 currentUser.setHasVoted(true);
                 currentUser.setVote(vote);
@@ -56,25 +62,29 @@ public class VoteServlet extends HttpServlet {
                 vote.getUserSet().add(currentUser);
 
                 userService.update(currentUser);
+                voteService.update(vote);
 
-                httpSession.setAttribute("message",
-                        "Your vote submitted successfully! Your vote was : " + team);
+                httpSession.setAttribute("message", "Your vote submitted successfully! Your vote was: " + team);
 
-                Optional<User> userByVoteId = userService.findUserByVoteId(currentUser.getId());
-                if (userByVoteId.isPresent()) {
-                    User userVote = userByVoteId.get();
-                    httpSession.setAttribute("userVote", userVote);
-                    httpSession.setAttribute("hasVotedInput", hasVotedInput);
-                } else {
-                    httpSession.setAttribute(ERROR, "Vote validation failed.");
+                Optional<User> userByVoteId;
+                try {
+                    userByVoteId = userService.findUserByVoteId(currentUser.getId());
+                    if (userByVoteId.isPresent()) {
+                        User userVote = userByVoteId.get();
+                        httpSession.setAttribute("userVote", userVote);
+                        httpSession.setAttribute("hasVotedInput", hasVotedInput);
+                    } else {
+                        httpSession.setAttribute(ERROR, "Vote validation failed.");
+                    }
+                } catch (NoResultException e) {
+                    e.getStackTrace();
+                    httpSession.setAttribute(ERROR, "An error occurred while validating the vote.");
                 }
 
             }
 
         } catch (Exception e) {
             e.getStackTrace();
-            HttpSession httpSession = req.getSession();
-            httpSession.setAttribute(ERROR, "An error occurred during the voting process.");
         }
     }
 }

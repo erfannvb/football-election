@@ -34,6 +34,9 @@ public class User extends BaseEntity<Long> {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "has_voted")
+    private boolean hasVoted;
+
     @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "vote_id")
     private Vote vote;

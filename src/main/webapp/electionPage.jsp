@@ -24,7 +24,9 @@
 
 <div class="container election">
 
-    <jsp:include page="components/ok_message.jsp"/>
+    <div class="mt-5">
+        <jsp:include page="components/ok_message.jsp"/>
+    </div>
 
     <div class="row mt-5">
 
@@ -68,6 +70,7 @@
             </div>
             <div class="modal-body">
                 <form>
+                    <input type="hidden" name="hasVotedInput" value="<%= currentUser.isHasVoted() %>">
                     <div class="form-group">
                         <div class="form-check mb-4">
                             <label class="form-check-label" for="esteghlal">Esteghlal Tehran</label>
@@ -98,7 +101,44 @@
                     <hr>
                     <div class="container text-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        <%
+                            try {
+                                User userVote = (User) session.getAttribute("userVote");
+                                if (userVote != null && userVote.getVote().getId() != null && userVote.isHasVoted()) {
+                        %>
+
+                        <button type="button" class="btn btn-primary" id="voteBtn" disabled>Vote</button>
+                        <div class="container mt-2">
+                            <p style="font-size: 17px">You cannot vote more than once.</p>
+                        </div>
+
+                        <%
+                        } else if (currentUser.isHasVoted()) {
+                        %>
+
+                        <button type="button" class="btn btn-primary" id="voteBtn" disabled>Vote</button>
+                        <div class="container mt-2">
+                            <p style="font-size: 17px">You cannot vote more than once.</p>
+                        </div>
+
+                        <%
+                        } else {
+                        %>
+
                         <button type="button" class="btn btn-primary" id="voteBtn">Vote</button>
+
+                        <%
+                            }
+                        } catch (NullPointerException e) {
+                        %>
+
+                        <button type="button" class="btn btn-primary" id="voteBtn">Vote</button>
+
+                        <%
+                            }
+                        %>
+
                     </div>
                 </form>
             </div>
@@ -111,11 +151,15 @@
     $(document).ready(() => {
         $("#voteBtn").click(() => {
             let team = $('input:radio[name="team"]:checked').val();
+            let hasVotedInput = $('input:hidden[name="hasVotedInput"]').val();
             $.ajax({
                 type: 'POST',
-                data: {team: team},
+                data: {
+                    team: team,
+                    hasVotedInput: hasVotedInput
+                },
                 url: 'http://localhost:8080/vote',
-                success: (data) => {
+                success: () => {
                     window.location = '/electionPage.jsp';
                 }
             });

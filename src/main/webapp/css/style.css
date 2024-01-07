@@ -31,3 +31,11 @@
 #logoutNavLink:hover {
     cursor: pointer;
 }
+
+.nav-link {
+    transition: all .2s;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}

@@ -8,6 +8,7 @@ import nvb.dev.footballelection.repository.VoteRepository;
 import nvb.dev.footballelection.service.VoteService;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
+import java.util.Optional;
 import java.util.Set;
 
 public class VoteServiceImpl extends BaseServiceImpl<Long, Vote, VoteRepository> implements VoteService {
@@ -44,5 +45,10 @@ public class VoteServiceImpl extends BaseServiceImpl<Long, Vote, VoteRepository>
             e.getStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public Optional<Vote> findVoteByTeam(String team) {
+        return repository.findVoteByTeam(team);
     }
 }

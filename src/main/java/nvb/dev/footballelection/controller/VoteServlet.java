@@ -78,7 +78,6 @@ public class VoteServlet extends HttpServlet {
                     }
                 } catch (NoResultException e) {
                     e.getStackTrace();
-                    httpSession.setAttribute(ERROR, "An error occurred while validating the vote.");
                 }
 
             }

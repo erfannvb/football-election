@@ -27,6 +27,7 @@
     color: blueviolet;
 }
 
+/*navbar*/
 #logoutNavLink:hover {
     cursor: pointer;
 }

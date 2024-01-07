@@ -1,4 +1,8 @@
 <%@ page import="nvb.dev.footballelection.entity.User" %>
+<%@ page import="jakarta.persistence.EntityManager" %>
+<%@ page import="nvb.dev.footballelection.base.repository.util.HibernateUtil" %>
+<%@ page import="java.util.List" %>
+<%@ page import="jakarta.persistence.Query" %>
 <%
 
     User currentUser = (User) session.getAttribute("currentUser");
@@ -28,7 +32,88 @@
         <jsp:include page="components/ok_message.jsp"/>
     </div>
 
-    <div class="row mt-5">
+    <div class="row mt-3">
+
+        <%
+            try {
+                String team = currentUser.getVote().getTeam();
+                if (team != null && team.equals("Esteghlal Tehran")) {
+        %>
+
+        <div class="col-md-12">
+            <div class="card" id="esteghlal-card">
+                <div class="card-body text-center">
+                    <div class="card-title"><strong>Your vote</strong></div>
+                    <div class="container mb-3">
+                        <img src="img/logos/es.png" alt="Election" class="img-fluid rounded" style="max-width: 100px">
+                    </div>
+                    <div><%=team%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%
+        } else if (team != null && team.equals("Sepahan Isfahan")) {
+        %>
+
+        <div class="col-md-12">
+            <div class="card" id="sepahan-card">
+                <div class="card-body text-center">
+                    <div class="card-title"><strong>Your vote</strong></div>
+                    <div class="container mb-3">
+                        <img src="img/logos/se.png" alt="Election" class="img-fluid rounded" style="max-width: 100px">
+                    </div>
+                    <div><%=team%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%
+        } else if (team != null && team.equals("Teraktorsazi Tabriz")) {
+        %>
+
+        <div class="col-md-12">
+            <div class="card" id="teraktor-card">
+                <div class="card-body text-center">
+                    <div class="card-title"><strong>Your vote</strong></div>
+                    <div class="container mb-3">
+                        <img src="img/logos/tr.png" alt="Election" class="img-fluid rounded" style="max-width: 100px">
+                    </div>
+                    <div><%=team%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%
+        } else if (team != null && team.equals("Persepolis Tehran")) {
+        %>
+
+        <div class="col-md-12">
+            <div class="card" id="persepolis-card">
+                <div class="card-body text-center">
+                    <div class="card-title"><strong>Your vote</strong></div>
+                    <div class="container mb-3">
+                        <img src="img/logos/pe.png" alt="Election" class="img-fluid rounded" style="max-width: 100px">
+                    </div>
+                    <div><%=team%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%
+                }
+            } catch (NullPointerException e) {
+                e.getStackTrace();
+            }
+        %>
+
+    </div>
+
+    <div class="row mt-3">
 
         <div class="col-md-12">
             <div class="card" data-bs-toggle="modal" data-bs-target="#electionModal">
@@ -43,7 +128,7 @@
 
     </div>
 
-    <div class="row mt-5">
+    <div class="row mt-3">
 
         <div class="col-md-12">
             <div class="card" data-bs-toggle="modal" data-bs-target="#statsModal">
@@ -161,6 +246,9 @@
                 url: 'http://localhost:8080/vote',
                 success: () => {
                     window.location = '/electionPage.jsp';
+                },
+                error: (err) => {
+                    console.log(err);
                 }
             });
         });
@@ -177,15 +265,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+               ...
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="container text-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+</script>
 
 </body>
 </html>

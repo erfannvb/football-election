@@ -19,13 +19,13 @@ public class Vote extends BaseEntity<Long> {
 
     @NotNull(message = "vote cannot be null")
     @NotEmpty(message = "vote cannot be empty")
-    @Column(name = "vote", nullable = false)
-    private String vote;
+    @Column(name = "team", nullable = false)
+    private String team;
 
     @OneToMany(mappedBy = "vote", cascade = CascadeType.ALL)
     private Set<User> userSet = new HashSet<>();
 
-    public Vote(String vote) {
-        this.vote = vote;
+    public Vote(String team) {
+        this.team = team;
     }
 }

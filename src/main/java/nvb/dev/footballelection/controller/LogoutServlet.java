@@ -13,13 +13,15 @@ import java.io.IOException;
 public class LogoutServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession httpSession = req.getSession();
 
         httpSession.removeAttribute("currentUser");
         httpSession.removeAttribute("hasVotedInput");
         httpSession.removeAttribute("userVote");
+
+        httpSession.setAttribute("message", "You logged out successfully!");
 
         resp.sendRedirect("/login.jsp");
 

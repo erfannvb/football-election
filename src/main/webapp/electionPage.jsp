@@ -284,7 +284,8 @@
                             String teamName = (String) result[1];
                 %>
 
-                <p><strong><%= teamName %> : <%= voteCount %></strong></p>
+                <p><strong><%= teamName %> : <%= voteCount %>
+                </strong></p>
 
                 <%
                         }
@@ -305,11 +306,6 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-
-
-</script>
 
 </body>
 </html>

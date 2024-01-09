@@ -310,7 +310,6 @@
                     EntityManager voteEntityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
 
                     try {
-
                         voteEntityManager.getTransaction().begin();
 
                         String totalVotesHql = "select count(u.id) from User u where u.hasVoted = true";

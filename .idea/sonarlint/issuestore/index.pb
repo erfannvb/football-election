@@ -71,5 +71,3 @@ t
 Dsrc/main/java/nvb/dev/footballelection/controller/LogoutServlet.java,4\4\449af71fbbe1a403a8ef1d5a07ba4a01def4b93e
 r
 Bsrc/main/java/nvb/dev/footballelection/controller/VoteServlet.java,2\e\2e8c6498cfece846f4b9d6af7a30c2027678458d
-x
-Hsrc/main/java/nvb/dev/footballelection/controller/StatisticsServlet.java,7\6\76595adc3d65f3f778659d145f5b4247262d552f

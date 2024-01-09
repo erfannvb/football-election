@@ -36,6 +36,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page"
+                       href="/voteTable.jsp">
+                        Vote Table
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" aria-current="page" id="logoutNavLink"
                        data-bs-toggle="modal" data-bs-target="#logoutModal">
                         Logout

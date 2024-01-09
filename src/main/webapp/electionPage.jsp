@@ -3,6 +3,11 @@
 <%@ page import="nvb.dev.footballelection.base.repository.util.HibernateUtil" %>
 <%@ page import="java.util.List" %>
 <%@ page import="jakarta.persistence.Query" %>
+<%@ page import="nvb.dev.footballelection.repository.UserRepository" %>
+<%@ page import="nvb.dev.footballelection.repository.impl.UserRepositoryImpl" %>
+<%@ page import="nvb.dev.footballelection.service.UserService" %>
+<%@ page import="nvb.dev.footballelection.service.impl.UserServiceImpl" %>
+<%@ page import="java.util.ArrayList" %>
 <%
 
     User currentUser = (User) session.getAttribute("currentUser");
@@ -276,6 +281,7 @@
 
                         String hql = "select count(u.id), u.vote.team from User u" +
                                 " where u.hasVoted = true group by u.vote.team";
+
                         Query query = entityManager.createQuery(hql);
 
                         List<Object[]> resultList = query.getResultList();
@@ -295,6 +301,36 @@
                     } finally {
                         entityManager.close();
                     }
+                %>
+
+                <hr>
+
+                <%
+
+                    EntityManager voteEntityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
+
+                    try {
+
+                        voteEntityManager.getTransaction().begin();
+
+                        String totalVotesHql = "select count(u.id) from User u where u.hasVoted = true";
+
+                        Query query = voteEntityManager.createQuery(totalVotesHql);
+
+                        long totalVotes = (long) query.getSingleResult();
+
+                %>
+
+                <p><strong>All Votes -> <%= totalVotes %>
+                </strong></p>
+
+                <%
+                    } catch (Exception e) {
+                        e.getStackTrace();
+                    } finally {
+                        voteEntityManager.close();
+                    }
+
                 %>
 
             </div>

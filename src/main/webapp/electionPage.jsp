@@ -3,11 +3,6 @@
 <%@ page import="nvb.dev.footballelection.base.repository.util.HibernateUtil" %>
 <%@ page import="java.util.List" %>
 <%@ page import="jakarta.persistence.Query" %>
-<%@ page import="nvb.dev.footballelection.repository.UserRepository" %>
-<%@ page import="nvb.dev.footballelection.repository.impl.UserRepositoryImpl" %>
-<%@ page import="nvb.dev.footballelection.service.UserService" %>
-<%@ page import="nvb.dev.footballelection.service.impl.UserServiceImpl" %>
-<%@ page import="java.util.ArrayList" %>
 <%
 
     User currentUser = (User) session.getAttribute("currentUser");

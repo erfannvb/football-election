@@ -37,7 +37,8 @@
 
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page"
-                       href="/voteTable.jsp">Vote Table
+                       href="/voteTable.jsp">
+                        Vote Table
                     </a>
                 </li>
 

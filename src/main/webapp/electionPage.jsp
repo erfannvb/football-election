@@ -243,7 +243,7 @@
                     team: team,
                     hasVotedInput: hasVotedInput
                 },
-                url: 'http://localhost:8080/vote',
+                url: 'http://localhost:8282/vote',
                 success: () => {
                     window.location = '/electionPage.jsp';
                 },
@@ -256,7 +256,7 @@
 
 </script>
 
-<!-- Election Modal -->
+<!-- Statistics Modal -->
 <div class="modal fade" id="statsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
